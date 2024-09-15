@@ -1,10 +1,8 @@
 import random
-
 class BattleshipGame:
     """
     A class to represent a Battleship game.
     """
-
     def __init__(self, size, num_ships, player_name, ship_type):
         """
         Initialize the game with grid size, number of ships, player name, and ship type.
@@ -18,8 +16,8 @@ class BattleshipGame:
         self.computer_grid = self.create_grid()
         self.player_ships = self.place_ships(self.player_grid)
         self.computer_ships = self.place_ships(self.computer_grid)
-        self.player_guesses = []  
-        self.computer_guesses = []  
+        self.player_guesses = []
+        self.computer_guesses = []
 
     def create_grid(self):
         """
@@ -38,7 +36,7 @@ class BattleshipGame:
             col = random.randint(0, self.size - 1)
             if (row, col) not in ships:
                 ships.append((row, col))
-                grid[row][col] = "X"  
+                grid[row][col] = "X"
         return ships
 
     def display_grid(self, grid, hide_ships=False):
@@ -51,7 +49,7 @@ class BattleshipGame:
             display_row = []
             for cell in row:
                 if hide_ships and cell == "X":
-                    display_row.append("O") 
+                    display_row.append("O")
                 else:
                     display_row.append(cell)
             print(" ".join(display_row))
@@ -121,12 +119,12 @@ class BattleshipGame:
         Display the player's board before the game starts
         """   
 
-        self.display_grid(self.player_grid)  
+        self.display_grid(self.player_grid)
 
         while True:
             # Player's turn
             print("\nYour turn:")
-            self.display_grid(self.computer_grid, hide_ships=True) 
+            self.display_grid(self.computer_grid, hide_ships=True)
             player_guess = self.get_player_guess()
             self.check_guess(self.computer_grid, self.computer_ships, player_guess)
 
@@ -149,9 +147,9 @@ class BattleshipGame:
             Show the computer's grid with ships hidden
             """
             print("\nYour board:")
-            self.display_grid(self.player_grid)  
+            self.display_grid(self.player_grid)
             print("\nComputer's board:")
-            self.display_grid(self.computer_grid, hide_ships=True) 
+            self.display_grid(self.computer_grid, hide_ships=True)
 
 if __name__ == "__main__":
     player_name = input("Enter your name to start the game: ")
