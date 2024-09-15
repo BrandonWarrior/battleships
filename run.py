@@ -44,8 +44,8 @@ class BattleshipGame:
     def display_grid(self, grid, hide_ships=False):
         """
         Display the current state of the given grid to the player.
-        The grid will show hits ("H"), misses ("M"), and unexplored spots ("O").
-        If hide_ships is True, the ships ("X") will not be displayed.
+        The grid will show hits "H", misses "M", and unexplored spots ("O").
+        If hide_ships is True, the ships "X" will not be displayed.
         """
         for row in grid:
             display_row = []
@@ -116,11 +116,17 @@ class BattleshipGame:
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
         print(f"Grid Size: {self.size}x{self.size}, Ships: {self.num_ships}, Ship Type: {self.ship_type}")
         print("Here is your game board:\n")
+        
+        """
+        Display the player's board before the game starts
+        """   
+
+        self.display_grid(self.player_grid)  
 
         while True:
             # Player's turn
             print("\nYour turn:")
-            self.display_grid(self.computer_grid, hide_ships=True)  # Show the computer's grid with ships hidden
+            self.display_grid(self.computer_grid, hide_ships=True) 
             player_guess = self.get_player_guess()
             self.check_guess(self.computer_grid, self.computer_ships, player_guess)
 
