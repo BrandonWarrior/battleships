@@ -74,7 +74,7 @@ class BattleshipGame:
                 elif (row, col) in self.player_guesses:
                     print(
                         "You've already guessed those coordinates! Try again."
-                        )
+                    )
                 else:
                     print("Invalid input! Enter values within the grid range.")
             except ValueError:
@@ -125,30 +125,30 @@ class BattleshipGame:
         self.display_grid(self.player_grid)
 
         while True:
-            """
-            Player's turn
-            """
+            # Player's turn
             print("\nYour turn:")
             self.display_grid(self.computer_grid, hide_ships=True)
             player_guess = self.get_player_guess()
-            self.check_guess(self.computer_grid, self.computer_ships, player_guess)
+            self.check_guess(self.computer_grid,
+                             self.computer_ships, player_guess)
 
             if self.check_game_over(self.computer_ships):
                 print(
                     "\nCongratulations! You've sunk all the computer's ships!"
                     )
                 break
-            """
-            Computer's turn
-            """
+
+            # Computer's turn
             print("\nComputer's turn:")
             computer_guess = self.computer_turn()
             print(f"Computer guesses: {computer_guess}")
-            self.check_guess(self.player_grid, self.player_ships, computer_guess)
+            self.check_guess(self.player_grid,
+                             self.player_ships, computer_guess)
 
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
                 break
+
             print("\nYour board:")
             self.display_grid(self.player_grid)
             print("\nComputer's board:")
