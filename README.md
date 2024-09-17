@@ -19,8 +19,6 @@ When you create the app, you will need to add two buildpacks from the _Settings_
 
 You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
 Connect your GitHub repository and deploy as normal.
 
 ## Constraints
@@ -30,3 +28,44 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 ---
 
 Happy coding!
+
+
+# Battleships! - Project 3
+
+The Battleship Game is a Python-based console game where the player competes against the computer. Each player has a grid where ships are placed randomly. The goal of the game is to guess the locations of the opponent's ships and sink them before your ships are sunk.
+
+## Features
+
+- Player vs. Computer: The player and computer take turns guessing the location of each other's ships.
+
+- Random Ship Placement: Both player and computer ships are placed randomly on their respective grids.
+
+- Guess Validation: The game ensures that the player's guesses are valid and within the grid boundaries.
+
+- Feedback: Hits, misses, and sunk ships are displayed in real-time during the game.
+
+## Game Rules 
+
+- Player vs. Computer: The player and computer take turns guessing the location of each other's ships.
+
+- Random Ship Placement: Both player and computer ships are placed randomly on their respective grids.
+
+- Guess Validation: The game ensures that the player's guesses are valid and within the grid boundaries.
+
+- Feedback: Hits, misses, and sunk ships are displayed in real-time during the game.
+
+## How to Play
+
+## Example Gameplay
+
+## Future Enhancements 
+
+## Code Structure 
+
+## Flake8 
+
+## Deployment
+
+## Bugs and Fixes
+
+## Credits
