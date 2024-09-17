@@ -1,12 +1,15 @@
 import random
+
+
 class BattleshipGame:
     """
     A class to represent a Battleship game.
     """
     def __init__(self, size, num_ships, player_name, ship_type):
         """
-        Initialize the game with grid size, number of ships, player name, and ship type.
-        Also, create the grid and randomly place ships on it for both player and computer.
+        Initialize the game with grid size, number of ships, player name,
+        and ship type. Also, create the grid and randomly place ships
+        on it for both player and computer.
         """
         self.size = size
         self.num_ships = num_ships
@@ -27,7 +30,7 @@ class BattleshipGame:
 
     def place_ships(self, grid):
         """
-        Randomly place the specified number of ships on the given grid.
+        Randomly place the specified number of ships on the grid.
         Ensures that no two ships occupy the same coordinates.
         """
         ships = []
@@ -41,8 +44,8 @@ class BattleshipGame:
 
     def display_grid(self, grid, hide_ships=False):
         """
-        Display the current state of the given grid to the player.
-        The grid will show hits "H", misses "M", and unexplored spots ("O").
+        Display the current state of the grid to the player.
+        The grid will show hits "H", misses "M", and unexplored spots "O".
         If hide_ships is True, the ships "X" will not be displayed.
         """
         for row in grid:
@@ -58,26 +61,29 @@ class BattleshipGame:
     def get_player_guess(self):
         """
         Prompt the player to enter coordinates for their guess.
-        Ensures that the input is valid and within the bounds of the grid.
+        Ensures that the input is valid and within the grid's bounds.
         """
         while True:
             try:
                 row = int(input(f"Enter a row (0-{self.size - 1}): "))
                 col = int(input(f"Enter a column (0-{self.size - 1}): "))
-                if (row, col) not in self.player_guesses and 0 <= row < self.size and 0 <= col < self.size:
+                if ((row, col) not in self.player_guesses and
+                        0 <= row < self.size and 0 <= col < self.size):
                     self.player_guesses.append((row, col))
                     return (row, col)
                 elif (row, col) in self.player_guesses:
-                    print("You've already guessed those coordinates! Try again.")
+                    print(
+                        "You've already guessed those coordinates! Try again."
+                        )
                 else:
-                    print("Invalid input! Please enter values within the grid range.")
+                    print("Invalid input! Enter values within the grid range.")
             except ValueError:
                 print("Invalid input! Please enter numbers only.")
 
     def check_guess(self, grid, ships, guess):
         """
-        Check if the guess hits or misses a ship.
-        Marks the grid accordingly with "H" for hits and "M" for misses.
+        Check if the guess hits or misses a ship. Marks the grid accordingly
+        with "H" for hits and "M" for misses.
         """
         row, col = guess
         if (row, col) in ships:
@@ -109,30 +115,32 @@ class BattleshipGame:
     def start_game(self):
         """
         Start the game, display the grids, and manage the game loop.
-        The game continues until all ships are hit and the player or computer wins.
+        The game continues until all ships are hit and the player
+        or computer wins.
         """
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
-        print(f"Grid Size: {self.size}x{self.size}, Ships: {self.num_ships}, Ship Type: {self.ship_type}")
+        print(f"Grid Size: {self.size}x{self.size}, Ships: {self.num_ships}, "
+              f"Ship Type: {self.ship_type}")
         print("Here is your game board:\n")
-        
-        """
-        Display the player's board before the game starts
-        """   
-
         self.display_grid(self.player_grid)
 
         while True:
-            # Player's turn
+            """
+            Player's turn
+            """
             print("\nYour turn:")
             self.display_grid(self.computer_grid, hide_ships=True)
             player_guess = self.get_player_guess()
             self.check_guess(self.computer_grid, self.computer_ships, player_guess)
 
             if self.check_game_over(self.computer_ships):
-                print("\nCongratulations! You have sunk all the computer's ships!")
+                print(
+                    "\nCongratulations! You've sunk all the computer's ships!"
+                    )
                 break
-
-            # Computer's turn
+            """
+            Computer's turn
+            """
             print("\nComputer's turn:")
             computer_guess = self.computer_turn()
             print(f"Computer guesses: {computer_guess}")
@@ -141,17 +149,14 @@ class BattleshipGame:
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
                 break
-            """
-            Display the updated grids
-            Show the player's grid
-            Show the computer's grid with ships hidden
-            """
             print("\nYour board:")
             self.display_grid(self.player_grid)
             print("\nComputer's board:")
             self.display_grid(self.computer_grid, hide_ships=True)
 
+
 if __name__ == "__main__":
     player_name = input("Enter your name to start the game: ")
-    game = BattleshipGame(size=5, num_ships=4, player_name=player_name, ship_type="Battleship")
+    game = BattleshipGame(size=5, num_ships=4, player_name=player_name,
+                          ship_type="Battleship")
     game.start_game()

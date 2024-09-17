@@ -95,9 +95,9 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 - start_game: Manages the game loop, alternating between player and computer turns.
 
-## Flake8 
-
-
+## Validation
+### Flake8 
+### PEP8
 
 ## Deployment
 
@@ -132,4 +132,6 @@ In the Deploy tab, select GitHub as the deployment method.
 - Code institute for the project 3 scope video. 
 
 - Youtube: Corey Schafer https://www.youtube.com/watch?v=ZDa-Z5JzLYM for creating classes in python. 
+
+- YouTube: How to Fix https://www.youtube.com/watch?v=Zt1G6AE_7Ks for how to fix lines too long. 
 
