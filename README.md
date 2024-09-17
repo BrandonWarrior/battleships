@@ -114,6 +114,7 @@ To deploy this Battleship game on Heroku, follow these steps:
 - Set Buildpacks
 - Go to the Settings tab on Heroku.
 - Under Buildpacks, add Python first, then Node.js.
+- create a Config Var called PORT. Set this to 8000
 
 - Link the Repository and Enable Automatic Deploys
 In the Deploy tab, select GitHub as the deployment method.
