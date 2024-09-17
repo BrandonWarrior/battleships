@@ -56,16 +56,79 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 ## How to Play
 
+- The game begins by asking the player to enter their name.
+
+- The player and the computer each have a grid with ships placed randomly.
+
+- The player takes turns guessing the location of the computer's ships by entering row and column coordinates.
+
+- The computer also guesses the player's ship locations.
+
+- The game continues until either the player or the computer sinks all of the opponent's ships.
+
+
 ## Example Gameplay
 
 ## Future Enhancements 
 
+- Allow the player to choose the number of ships.
+
+- Implement different types of ships with varying sizes.
+
+- Allow the player to choose grid size. 
+
 ## Code Structure 
+
+- BattleshipGame: The main class responsible for managing the game.
+
+- create_grid: Creates an empty game grid.
+
+- place_ships: Randomly places ships on the grid.
+
+- display_grid: Displays the current state of the grid.
+
+- get_player_guess: Gets valid input from the player.
+
+- check_guess: Checks whether a guess is a hit or miss.
+
+- computer_turn: Generates a random guess for the computer.
+
+- start_game: Manages the game loop, alternating between player and computer turns.
 
 ## Flake8 
 
+
+
 ## Deployment
+
+Deployment
+To deploy this Battleship game on Heroku, follow these steps:
+
+-  Fork or Clone the Repository
+
+- Create a New Heroku App
+- Log in to Heroku.
+- Click "New" > "Create New App".
+- Name your app and select your region.
+
+- Set Buildpacks
+- Go to the Settings tab on Heroku.
+- Under Buildpacks, add Python first, then Node.js.
+
+- Link the Repository and Enable Automatic Deploys
+In the Deploy tab, select GitHub as the deployment method.
+- Search for your GitHub repository and connect it.
+- Click deploy. 
+
+- App is live at: https://battleships-project3-4a1230ee998c.herokuapp.com/
 
 ## Bugs and Fixes
 
+- 
+
 ## Credits
+
+- Code institute for the project 3 scope video. 
+
+- Youtube: Corey Schafer https://www.youtube.com/watch?v=ZDa-Z5JzLYM for creating classes in python. 
+
