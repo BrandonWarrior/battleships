@@ -154,3 +154,5 @@ To deploy this Battleship game on Heroku, follow these steps:
 - [YouTube: How to Fix] (https://www.youtube.com/watch?v=Zt1G6AE_7Ks) for how to fix lines too long. 
 
 - DeftStack (https://www.delftstack.com/howto/python/python-clear-console/#google_vignette) for how to clear console in Python.
+
+- ASCII Art Archive (https://www.asciiart.eu/text-to-ascii-art) for adding Battleships! art to home page. 
