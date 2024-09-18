@@ -36,35 +36,41 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 ## Features
 
+- Home Screen: The game now features a home screen with options to start the game or view instructions on how to play.
+
 - Player vs. Computer: The player and computer take turns guessing the location of each other's ships.
 
-- Random Ship Placement: Both player and computer ships are placed randomly on their respective grids.
+- Random Ship Placement: Ships are placed randomly on the grids for both the player and the computer, with no overlap between ships.
 
-- Guess Validation: The game ensures that the player's guesses are valid and within the grid boundaries.
+- Guess Validation: The game ensures that the player's guesses are valid, preventing out-of-bound entries or previously guessed coordinates.
+
+- Input Validation: Players must enter their name before the game can begin, and invalid choices on the home screen are caught and handled appropriately.
 
 - Feedback: Hits, misses, and sunk ships are displayed in real-time during the game.
+
+- End Game Menu: When the game is over, players are presented with an option to restart the game or return to the home screen.
 
 ## Game Rules 
 
-- Player vs. Computer: The player and computer take turns guessing the location of each other's ships.
+- The player and the computer take turns guessing the location of each other's ships.
 
-- Random Ship Placement: Both player and computer ships are placed randomly on their respective grids.
+- The goal is to sink all of the opponent's ships before your own fleet is destroyed.
 
-- Guess Validation: The game ensures that the player's guesses are valid and within the grid boundaries.
+- Ships are placed randomly on the grid.
 
-- Feedback: Hits, misses, and sunk ships are displayed in real-time during the game.
+- Players are prompted to input row and column values to guess where the opponent's ships are.
+
+- Hits will be marked as "H", misses as "M", and unexplored spots as "O".
 
 ## How to Play
 
-- The game begins by asking the player to enter their name.
+- Upon launching, the player is presented with a home screen where they can either start the game or view instructions on how to play.
 
-- The player and the computer each have a grid with ships placed randomly.
+- After selecting the "Start Game" option, the player is asked to enter their name, and the game begins.
 
-- The player takes turns guessing the location of the computer's ships by entering row and column coordinates.
+- The player takes turns guessing the location of the computer's ships by entering row and column coordinates, and the computer does the same for the player's grid.
 
-- The computer also guesses the player's ship locations.
-
-- The game continues until either the player or the computer sinks all of the opponent's ships.
+- The game continues until one side sinks all the ships.
 
 
 ## Example Gameplay
@@ -87,17 +93,23 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 - display_grid: Displays the current state of the grid.
 
-- get_player_guess: Gets valid input from the player.
+- get_player_guess: Prompts the player for valid input.
 
-- check_guess: Checks whether a guess is a hit or miss.
+- check_guess: Checks whether a guess is a hit or miss and updates the grid accordingly.
 
 - computer_turn: Generates a random guess for the computer.
 
 - start_game: Manages the game loop, alternating between player and computer turns.
 
+- end_game_menu: Displays options to either restart the game or return to the home screen.
+
 ## Validation
-### Flake8 
+### Flake8
+
+Code has been run through flake8 to ensure it follows PEP8 guidelines, fixing issues with line lengths and formatting.
+
 ### PEP8
+
 
 ## Deployment
 
@@ -116,8 +128,8 @@ To deploy this Battleship game on Heroku, follow these steps:
 - Under Buildpacks, add Python first, then Node.js.
 - create a Config Var called PORT. Set this to 8000
 
-- Link the Repository and Enable Automatic Deploys
-In the Deploy tab, select GitHub as the deployment method.
+- Link the Repository and Enable Automatic Deploys In the Deploy tab.
+- select GitHub as the deployment method.
 - Search for your GitHub repository and connect it.
 - Click deploy. 
 
@@ -125,7 +137,11 @@ In the Deploy tab, select GitHub as the deployment method.
 
 ## Bugs and Fixes
 
-- 
+- Bug Fix: Addressed issues with invalid input for player guesses.
+
+- Bug Fix: Implemented input validation to ensure player names and menu choices are correctly handled.
+
+- Bug Fix: Fixed a bug where the player's grid was shown twice after each turn.
 
 ## Credits
 
