@@ -66,18 +66,20 @@ class BattleshipGame:
         """
         while True:
             try:
-                row = int(input(f"Enter a row (0-{self.size - 1}): "))
-                col = int(input(f"Enter a column (0-{self.size - 1}): "))
-                if ((row, col) not in self.player_guesses and
-                        0 <= row < self.size and 0 <= col < self.size):
-                    self.player_guesses.append((row, col))
-                    return (row, col)
-                elif (row, col) in self.player_guesses:
-                    print(
-                        "You've already guessed those coordinates! Try again."
-                    )
-                else:
-                    print("Invalid input! Enter values within the grid range.")
+                row = input(f"Enter a row (0-{self.size - 1}): ")
+                col = input(f"Enter a column (0-{self.size - 1}): ")
+                
+                # Ensure that input is a single digit and within the valid range
+                if (len(row) == 1 and len(col) == 1 and
+                        row.isdigit() and col.isdigit()):
+                    row, col = int(row), int(col)
+                    if ((row, col) not in self.player_guesses and
+                            0 <= row < self.size and 0 <= col < self.size):
+                        self.player_guesses.append((row, col))
+                        return (row, col)
+                    elif (row, col) in self.player_guesses:
+                        print("You've already guessed those coordinates! Try again.")
+                print("Invalid input! Please enter single digits within the grid range.")
             except ValueError:
                 print("Invalid input! Please enter numbers only.")
 
@@ -129,7 +131,6 @@ class BattleshipGame:
         while True:
             # Player's turn
             print("\nYour turn:")
-            self.display_grid(self.computer_grid, hide_ships=True)
             player_guess = self.get_player_guess()
             self.check_guess(self.computer_grid,
                              self.computer_ships, player_guess)
@@ -153,6 +154,7 @@ class BattleshipGame:
                 self.end_of_game_menu()
                 break
 
+            # Display boards after both turns are taken
             print("\nYour board:")
             self.display_grid(self.player_grid)
             print("\nComputer's board:")
