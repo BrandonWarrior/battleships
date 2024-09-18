@@ -75,6 +75,8 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 ## Example Gameplay
 
+
+
 ## Future Enhancements 
 
 - Allow the player to choose the number of ships.
@@ -151,3 +153,4 @@ To deploy this Battleship game on Heroku, follow these steps:
 
 - [YouTube: How to Fix] (https://www.youtube.com/watch?v=Zt1G6AE_7Ks) for how to fix lines too long. 
 
+- DeftStack (https://www.delftstack.com/howto/python/python-clear-console/#google_vignette) for how to clear console in Python.

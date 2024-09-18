@@ -207,6 +207,16 @@ def show_home_page():
     Display the home page with options to start the game or view instructions.
     """
     clear_console()
+    # ASCII Art
+    print(r"""
+     ____        _   _   _           _     _           _ 
+    | __ )  __ _| |_| |_| | ___  ___| |__ (_)_ __  ___| |
+    |  _ \ / _` | __| __| |/ _ \/ __| '_ \| | '_ \/ __| |
+    | |_) | (_| | |_| |_| |  __/\__ \ | | | | |_) \__ \_|
+    |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/|___(_)
+                                            |_|          
+    """)
+
     print("Welcome to Battleships!")
     print("1. Start Game")
     print("2. Instructions")
