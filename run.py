@@ -68,17 +68,29 @@ class BattleshipGame:
         """
         while True:
             try:
-                row = int(input(f"Enter a row (0-{self.size - 1}): "))
-                col = int(input(f"Enter a column (0-{self.size - 1}): "))
-                if ((row, col) not in self.player_guesses and
-                        0 <= row < self.size and 0 <= col < self.size):
-                    self.player_guesses.append((row, col))
-                    return (row, col)
-                elif (row, col) in self.player_guesses:
-                    print("You've already guessed those coordinates! "
-                          "Try again.")
+                row = input(f"Enter a row (0-{self.size - 1}): ")
+                col = input(f"Enter a column (0-{self.size - 1}): ")
+
+                # Validate that the input is a single-digit number
+                if (
+                    row.isdigit() and col.isdigit() and
+                    len(row) == 1 and len(col) == 1 and
+                    0 <= int(row) < self.size and
+                    0 <= int(col) < self.size
+                ):
+
+                    row, col = int(row), int(col)
+
+                    if (row, col) not in self.player_guesses:
+                        self.player_guesses.append((row, col))
+                        return row, col
+                    else:
+                        print("You've already guessed those coordinates! "
+                              "Try again.")
                 else:
-                    print("Invalid input! Enter values within the grid range.")
+                    print("Invalid input! Please enter a single digit for "
+                          "both row and column.")
+
             except ValueError:
                 print("Invalid input! Please enter numbers only.")
 
@@ -122,8 +134,10 @@ class BattleshipGame:
         """
         clear_console()
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
-        print(f"Grid Size: {self.size}x{self.size}, Ships: {self.num_ships}, "
-              f"Ship Type: {self.ship_type}")
+        print(
+            f"Grid Size: {self.size}x{self.size}, "
+            f"Ships: {self.num_ships}, Ship Type: {self.ship_type}"
+        )
         print("Here is your game board:\n")
         self.display_grid(self.player_grid)
 
@@ -209,17 +223,17 @@ def show_home_page():
     clear_console()
     # ASCII Art
     print(r"""
-     ____        _   _   _           _     _           _ 
+     ____        _   _   _           _     _           _
     | __ )  __ _| |_| |_| | ___  ___| |__ (_)_ __  ___| |
     |  _ \ / _` | __| __| |/ _ \/ __| '_ \| | '_ \/ __| |
     | |_) | (_| | |_| |_| |  __/\__ \ | | | | |_) \__ \_|
     |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/|___(_)
-                                            |_|          
+                                            |_|
     """)
 
-    print("Welcome to Battleships!")
-    print("1. Start Game")
-    print("2. Instructions")
+    print("Welcome to Battleships!\n")
+    print("1. Start Game\n")
+    print("2. Instructions\n")
 
     choice = input("Enter your choice (1 or 2): ")
 
@@ -231,8 +245,12 @@ def show_home_page():
             print("Invalid name. Please enter a valid name to start the game.")
             player_name = input("Enter your name to start the game: ").strip()
 
-        game = BattleshipGame(size=5, num_ships=4, player_name=player_name,
-                              ship_type="Battleship")
+        game = BattleshipGame(
+            size=5,
+            num_ships=4,
+            player_name=player_name,
+            ship_type="Battleship"
+        )
         game.start_game()
     elif choice == "2":
         show_instructions()
