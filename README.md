@@ -131,7 +131,7 @@ In the Deploy tab, select GitHub as the deployment method.
 
 - Code institute for the project 3 scope video. 
 
-- Youtube: Corey Schafer https://www.youtube.com/watch?v=ZDa-Z5JzLYM for creating classes in python. 
+- [Youtube: Corey Schafer] (https://www.youtube.com/watch?v=ZDa-Z5JzLYM) for creating classes in python. 
 
-- YouTube: How to Fix https://www.youtube.com/watch?v=Zt1G6AE_7Ks for how to fix lines too long. 
+- [YouTube: How to Fix] (https://www.youtube.com/watch?v=Zt1G6AE_7Ks) for how to fix lines too long. 
 

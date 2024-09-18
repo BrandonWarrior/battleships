@@ -1,4 +1,5 @@
 import random
+import os  # For clearing the console
 
 
 class BattleshipGame:
@@ -118,6 +119,7 @@ class BattleshipGame:
         The game continues until all ships are hit and the player
         or computer wins.
         """
+        clear_console()
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
         print(f"Grid Size: {self.size}x{self.size}, Ships: {self.num_ships}, "
               f"Ship Type: {self.ship_type}")
@@ -135,7 +137,8 @@ class BattleshipGame:
             if self.check_game_over(self.computer_ships):
                 print(
                     "\nCongratulations! You've sunk all the computer's ships!"
-                    )
+                )
+                self.end_of_game_menu()
                 break
 
             # Computer's turn
@@ -147,6 +150,7 @@ class BattleshipGame:
 
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
+                self.end_of_game_menu()
                 break
 
             print("\nYour board:")
@@ -154,9 +158,53 @@ class BattleshipGame:
             print("\nComputer's board:")
             self.display_grid(self.computer_grid, hide_ships=True)
 
+    def end_of_game_menu(self):
+        """
+        Display a menu after the game ends to restart or quit to the home page.
+        """
+        while True:
+            print("\nGame Over! What would you like to do next?")
+            print("1. Press 'R' to restart the game.")
+            print("2. Press 'H' to return to the home page.")
+            choice = input("\nEnter your choice: ").strip().upper()
+
+            if choice == 'R':
+                self.__init__(self.size, self.num_ships, self.player_name, self.ship_type)
+                self.start_game()
+                break
+            elif choice == 'H':
+                show_home_page()
+                break
+            else:
+                print("Invalid choice. Please try again.")
+
+
+def clear_console():
+    """
+    Clear the console screen based on the user's operating system.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def show_home_page():
+    """
+    Display the home page with options to start the game or quit.
+    """
+    clear_console()
+    print("Welcome to the Battleship Game!")
+    print("1. Press 'S' to start the game.")
+    
+    while True:
+        choice = input("\nEnter your choice: ").strip().upper()
+        if choice == 'S':
+            player_name = input("Enter your name to start the game: ")
+            game = BattleshipGame(size=5, num_ships=4, player_name=player_name,
+                                  ship_type="Battleship")
+            game.start_game()
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
-    player_name = input("Enter your name to start the game: ")
-    game = BattleshipGame(size=5, num_ships=4, player_name=player_name,
-                          ship_type="Battleship")
-    game.start_game()
+    show_home_page()
