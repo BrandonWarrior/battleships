@@ -1,11 +1,11 @@
 import random
-import os  # For clearing the console
-
+import os
 
 class BattleshipGame:
     """
     A class to represent a Battleship game.
     """
+
     def __init__(self, size, num_ships, player_name, ship_type):
         """
         Initialize the game with grid size, number of ships, player name,
@@ -66,20 +66,16 @@ class BattleshipGame:
         """
         while True:
             try:
-                row = input(f"Enter a row (0-{self.size - 1}): ")
-                col = input(f"Enter a column (0-{self.size - 1}): ")
-                
-                # Ensure that input is a single digit and within the valid range
-                if (len(row) == 1 and len(col) == 1 and
-                        row.isdigit() and col.isdigit()):
-                    row, col = int(row), int(col)
-                    if ((row, col) not in self.player_guesses and
-                            0 <= row < self.size and 0 <= col < self.size):
-                        self.player_guesses.append((row, col))
-                        return (row, col)
-                    elif (row, col) in self.player_guesses:
-                        print("You've already guessed those coordinates! Try again.")
-                print("Invalid input! Please enter single digits within the grid range.")
+                row = int(input(f"Enter a row (0-{self.size - 1}): "))
+                col = int(input(f"Enter a column (0-{self.size - 1}): "))
+                if ((row, col) not in self.player_guesses and
+                        0 <= row < self.size and 0 <= col < self.size):
+                    self.player_guesses.append((row, col))
+                    return (row, col)
+                elif (row, col) in self.player_guesses:
+                    print("You've already guessed those coordinates! Try again.")
+                else:
+                    print("Invalid input! Enter values within the grid range.")
             except ValueError:
                 print("Invalid input! Please enter numbers only.")
 
@@ -136,10 +132,7 @@ class BattleshipGame:
                              self.computer_ships, player_guess)
 
             if self.check_game_over(self.computer_ships):
-                print(
-                    "\nCongratulations! You've sunk all the computer's ships!"
-                )
-                self.end_of_game_menu()
+                print("\nCongratulations! You've sunk all the computer's ships!")
                 break
 
             # Computer's turn
@@ -151,61 +144,85 @@ class BattleshipGame:
 
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
-                self.end_of_game_menu()
                 break
 
-            # Display boards after both turns are taken
             print("\nYour board:")
             self.display_grid(self.player_grid)
             print("\nComputer's board:")
             self.display_grid(self.computer_grid, hide_ships=True)
 
-    def end_of_game_menu(self):
+        self.end_game_menu()
+
+    def end_game_menu(self):
         """
-        Display a menu after the game ends to restart or quit to the home page.
+        Display a menu at the end of the game with options to restart or return to the home page.
         """
         while True:
-            print("\nGame Over! What would you like to do next?")
-            print("1. Press 'R' to restart the game.")
-            print("2. Press 'H' to return to the home page.")
-            choice = input("\nEnter your choice: ").strip().upper()
+            print("\nGame Over! What would you like to do?")
+            print("1. Restart Game")
+            print("2. Return to Home Page")
+            choice = input("Enter 1 or 2: ")
 
-            if choice == 'R':
-                self.__init__(self.size, self.num_ships, self.player_name, self.ship_type)
-                self.start_game()
+            if choice == "1":
+                self.restart_game()
                 break
-            elif choice == 'H':
+            elif choice == "2":
                 show_home_page()
                 break
             else:
-                print("Invalid choice. Please try again.")
+                print("Invalid choice, please try again.")
+
+    def restart_game(self):
+        """
+        Restart the game with the same settings.
+        """
+        self.__init__(self.size, self.num_ships, self.player_name, self.ship_type)
+        self.start_game()
 
 
-def clear_console():
+def show_instructions():
     """
-    Clear the console screen based on the user's operating system.
+    Display instructions on how to play the game.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')
+    clear_console()
+    print("Instructions:")
+    print("1. This is a simple Battleships game.")
+    print("2. You and the computer will each have a grid.")
+    print("3. Your goal is to guess where the computer's ships are.")
+    print("4. You will be prompted to enter row and column coordinates.")
+    print("5. Hits will be marked with 'H' and misses with 'M'.")
+    print("6. The game ends when all ships of either side are sunk.")
+    input("\nPress Enter to return to the home screen.")
+    show_home_page()
 
 
 def show_home_page():
     """
-    Display the home page with options to start the game or quit.
+    Display the home page with options to start the game or view instructions.
     """
     clear_console()
-    print("Welcome to the Battleship Game!")
-    print("1. Press 'S' to start the game.")
-    
-    while True:
-        choice = input("\nEnter your choice: ").strip().upper()
-        if choice == 'S':
-            player_name = input("Enter your name to start the game: ")
-            game = BattleshipGame(size=5, num_ships=4, player_name=player_name,
-                                  ship_type="Battleship")
-            game.start_game()
-            break
-        else:
-            print("Invalid choice. Please try again.")
+    print("Welcome to Battleships!")
+    print("1. Start Game")
+    print("2. Instructions")
+
+    choice = input("Enter your choice (1 or 2): ")
+
+    if choice == "1":
+        player_name = input("Enter your name to start the game: ")
+        game = BattleshipGame(size=5, num_ships=4, player_name=player_name, ship_type="Battleship")
+        game.start_game()
+    elif choice == "2":
+        show_instructions()
+    else:
+        print("Invalid choice. Please try again.")
+        show_home_page()
+
+
+def clear_console():
+    """
+    Clear the console for better readability.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 if __name__ == "__main__":
