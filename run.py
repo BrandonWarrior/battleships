@@ -1,4 +1,3 @@
-
 import random
 import os
 
@@ -200,6 +199,53 @@ class BattleshipGame:
         self.start_game()
 
 
+def show_home_page():
+    """
+    Display the home page with options to start the game or view instructions.
+    """
+    clear_console()
+    # ASCII Art
+    print(r"""
+     ____        _   _   _           _     _           _
+    | __ )  __ _| |_| |_| | ___  ___| |__ (_)_ __  ___| |
+    |  _ \ / _` | __| __| |/ _ \/ __| '_ \| | '_ \/ __| |
+    | |_) | (_| | |_| |_| |  __/\__ \ | | | | |_) \__ \_|
+    |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/|___(_)
+                                            |_|
+    """)
+
+    print("Welcome to Battleships!\n")
+    print("1. Start Game\n")
+    print("2. Instructions\n")
+
+    while True:
+        choice = input("Enter your choice (1 or 2): ")
+
+        if choice == "1":
+            clear_console()
+            player_name = input("Enter your name to start the game: ").strip()
+
+            # Input validation: Ensure name is not empty or just spaces
+            while not player_name:
+                print("Invalid name. Please enter a valid name to start the game.")
+                player_name = input("Enter your name to start the game: ").strip()
+
+            game = BattleshipGame(
+                size=5,
+                num_ships=4,
+                player_name=player_name,
+                ship_type="Battleship"
+            )
+            game.start_game()
+
+        elif choice == "2":
+            clear_console()
+            show_instructions()
+
+        else:
+            print("Invalid choice. Please enter '1' to start the game or '2' to view instructions.")
+
+
 def show_instructions():
     """
     Display instructions on how to play the game.
@@ -223,51 +269,6 @@ def show_instructions():
         else:
             print(
                 "Invalid input. Please press 1 to return to the home screen.")
-
-
-def show_home_page():
-    """
-    Display the home page with options to start the game or view instructions.
-    """
-    clear_console()
-    # ASCII Art
-    print(r"""
-     ____        _   _   _           _     _           _
-    | __ )  __ _| |_| |_| | ___  ___| |__ (_)_ __  ___| |
-    |  _ \ / _` | __| __| |/ _ \/ __| '_ \| | '_ \/ __| |
-    | |_) | (_| | |_| |_| |  __/\__ \ | | | | |_) \__ \_|
-    |____/ \__,_|\__|\__|_|\___||___/_| |_|_| .__/|___(_)
-                                            |_|
-    """)
-
-    print("Welcome to Battleships!\n")
-    print("1. Start Game\n")
-    print("2. Instructions\n")
-
-    choice = input("Enter your choice (1 or 2): ")
-
-    if choice == "1":
-        clear_console()
-        player_name = input("Enter your name to start the game: ").strip()
-
-        # Input validation: Ensure name is not empty or just spaces
-        while not player_name:
-            print("Invalid name. Please enter a valid name to start the game.")
-            player_name = input("Enter your name to start the game: ").strip()
-
-        game = BattleshipGame(
-            size=5,
-            num_ships=4,
-            player_name=player_name,
-            ship_type="Battleship"
-        )
-        game.start_game()
-    elif choice == "2":
-        clear_console()
-        show_instructions()
-    else:
-        print("Invalid choice. Please try again.")
-        show_home_page()
 
 
 def clear_console():
