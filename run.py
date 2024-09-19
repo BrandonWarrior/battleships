@@ -205,15 +205,24 @@ def show_instructions():
     Display instructions on how to play the game.
     """
     clear_console()
-    print("Instructions:")
-    print("1. This is a simple Battleships game.")
-    print("2. You and the computer will each have a grid.")
-    print("3. Your goal is to guess where the computer's ships are.")
-    print("4. You will be prompted to enter row and column coordinates.")
-    print("5. Hits will be marked with 'H' and misses with 'M'.")
-    print("6. The game ends when all ships of either side are sunk.")
-    input("\nPress Enter to return to the home screen.")
-    show_home_page()
+    print("Instructions:\n")
+    print("1. This is a simple Battleships game.\n")
+    print("2. You and the computer will each have a grid.\n")
+    print("3. Your goal is to guess where the computer's ships are.\n")
+    print("4. You will be prompted to enter row and column coordinates.\n")
+    print("5. Hits will be marked with 'H' and misses with 'M'.\n")
+    print("6. The game ends when all ships of either side are sunk.\n")
+
+    # Input validation to return to the home screen
+    while True:
+        choice = input("\nPress 1 to return to the home screen: ")
+        if choice == "1":
+            clear_console()
+            show_home_page()
+            break
+        else:
+            print(
+                "Invalid input. Please press 1 to return to the home screen.")
 
 
 def show_home_page():
@@ -238,6 +247,7 @@ def show_home_page():
     choice = input("Enter your choice (1 or 2): ")
 
     if choice == "1":
+        clear_console()
         player_name = input("Enter your name to start the game: ").strip()
 
         # Input validation: Ensure name is not empty or just spaces
@@ -253,6 +263,7 @@ def show_home_page():
         )
         game.start_game()
     elif choice == "2":
+        clear_console()
         show_instructions()
     else:
         print("Invalid choice. Please try again.")

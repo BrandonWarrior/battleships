@@ -139,11 +139,11 @@ To deploy this Battleship game on Heroku, follow these steps:
 
 ## Bugs and Fixes
 
-- Bug Fix: Addressed issues with invalid input for player guesses.
+- Invalid Input Handling: Resolved a bug where users could input multiple digits in the row/column inputs. Input validation now ensures only single-digit inputs are accepted.
 
-- Bug Fix: Implemented input validation to ensure player names and menu choices are correctly handled.
+- Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn.
 
-- Bug Fix: Fixed a bug where the player's grid was shown twice after each turn.
+- Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or entering just spaces.
 
 ## Credits
 
