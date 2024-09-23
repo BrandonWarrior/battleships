@@ -75,7 +75,21 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 ## Example Gameplay
 
+### Instructions 
+![]()
 
+![]()
+
+### Battleships Game 
+![]()
+
+![]()
+
+![]()
+
+![]()
+
+![]()
 
 ## Future Enhancements 
 
@@ -144,6 +158,8 @@ To deploy this Battleship game on Heroku, follow these steps:
 - Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn.
 
 - Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or entering just spaces.
+
+- Input Validation: Resolved an issue where the invalid input message on the home screen would not appear properly when entering an incorrect key. Now, the game properly displays an error message and waits for a valid input (1 or 2) before proceeding.
 
 ## Credits
 
