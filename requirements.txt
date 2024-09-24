@@ -1,2 +1,2 @@
-# Your requirements go here
+colorama==0.4.6
 flake8==7.1.1
