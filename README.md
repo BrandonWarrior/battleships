@@ -36,19 +36,23 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 ## Features
 
-- Home Screen: The game now features a home screen with options to start the game or view instructions on how to play.
+- Home Screen: The game features an interactive home screen with options to start the game or view detailed instructions on how to play. It also includes input validation to ensure that only the correct options are selected.
 
-- Player vs. Computer: The player and computer take turns guessing the location of each other's ships.
+- Player vs. Computer Gameplay: Players compete against a computer opponent, taking turns to guess the location of each other's ships. The game keeps track of both the player's and computer's moves, providing a challenging experience.
 
-- Random Ship Placement: Ships are placed randomly on the grids for both the player and the computer, with no overlap between ships.
+- Random Ship Placement: Ships are randomly placed on both the player's and computer's grids at the start of the game, ensuring a unique game experience each time. The placement logic prevents any overlap between ships.
 
-- Guess Validation: The game ensures that the player's guesses are valid, preventing out-of-bound entries or previously guessed coordinates.
+- Real-time Feedback: During gameplay, hits ("H"), misses ("M"), and the status of the ships are displayed in real-time on the grid. This provides clear and immediate feedback to the player about their progress.
 
-- Input Validation: Players must enter their name before the game can begin, and invalid choices on the home screen are caught and handled appropriately.
+### Input Validation:
 
-- Feedback: Hits, misses, and sunk ships are displayed in real-time during the game.
+- Home Screen: Input validation ensures that players can only select valid options (1 or 2) when choosing to start the game or view instructions.
 
-- End Game Menu: When the game is over, players are presented with an option to restart the game or return to the home screen.
+- Player Name: Players must enter a valid name to start the game, ensuring they cannot proceed without providing an appropriate input.
+
+- Coordinate Input: The game validates that players input single-digit row and column values within the grid's range, preventing invalid entries during their turns.
+
+- End Game Menu: Once the game concludes (whether the player wins or loses), an end-game menu is displayed, offering options to either restart the game or return to the home screen. Input validation ensures that players make a valid selection at this stage.
 
 ## Game Rules 
 
@@ -75,21 +79,65 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 ## Example Gameplay
 
-### Instructions 
-![]()
+### Instructions
 
-![]()
+![home page](docs/images/home.png)
+
+- The home page of the Battleships game displays a welcome message and ASCII art. The player is prompted to choose between two options: "1. Start Game" to begin playing or "2. Instructions" to learn how to play.
+
+![instructions](docs/images/instructions.png)
+
+- The instructions screen provides detailed steps on how to play the Battleships game. It explains the goal, the game rules, and the player's objective. This screen is displayed when the player selects the "Instructions" option from the home page.
+
+![instructions input validation](docs/images/instructions-validation.png)
+
+- This screenshot shows the input validation feature on the instructions screen. If a player enters an incorrect key (anything other than "1"), an error message prompts them to enter "1" to return to the home screen, ensuring proper input validation and user guidance.
 
 ### Battleships Game 
-![]()
+![enter name to start game](docs/images/enter-name.png)
 
-![]()
+- This screen prompts the player to enter their name before starting the game. It ensures that every player provides their name to personalize the game experience.
 
-![]()
+![invalid choice](docs/images/input-home.png)
 
-![]()
+- When a player enters an invalid input (anything other than "1" or "2") on the home screen, an error message appears, instructing them to enter either "1" to start the game or "2" to view the instructions.
 
-![]()
+
+![invalid name](docs/images/invalid-name.png)
+
+- This screen shows input validation when the player attempts to start the game without entering a valid name. An error message prompts the player to provide a name, ensuring they do not proceed with an empty or whitespace-only entry.
+
+![start of game](docs/images/start-of-game.png)
+
+- This screenshot shows the beginning of the game after the player has entered their name. It displays the player's grid and provides details such as the grid size, the number of ships, and the ship type.
+
+![computer unhidden ships](docs/images/unhide-ships.png)
+
+- For testing purposes, this screenshot displays the computer's grid with ships unhidden. This feature helps verify ship placements during game development but is not part of the standard gameplay.
+
+![duplicated turn](docs/images/duplicated-turn.png)
+
+This screenshot demonstrates the input validation for repeated guesses. When the player tries to guess the same coordinates multiple times, an error message appears, instructing them to pick a new location.
+
+![correct turn](docs/images/correct-turn.png)
+
+- This screen shows that the player has entered valid coordinates correctly to play the game. However, the guess results in a "Miss," indicated by the "M" on the grid, showing that no ship was hit.
+
+![incorrect turn](docs/images/invalid-turn.png)
+
+- This screenshot demonstrates the input validation feature in action. The player has entered invalid coordinates, and the game displays an error message, prompting them to enter valid coordinates within the grid's boundaries.
+
+![loser](docs/images/loser-end.png)
+
+- This screen appears when the player loses the game. The computer has sunk all the player's ships, and the game ends with a "Game over!" message.
+
+![winner](docs/images/winner-end.png)
+
+- This screenshot displays the end-of-game screen when the player wins. It congratulates the player for successfully sinking all the computer's ships and winning the game.
+
+![input validation at the end of the game ](docs/images/end-game-validation.png)
+
+- This screen demonstrates the input validation feature at the end of the game. If the player enters an invalid key when prompted to either restart the game or return to the home page, an error message appears, instructing them to enter "1" or "2" to make a valid choice.
 
 ## Future Enhancements 
 
@@ -120,12 +168,9 @@ The Battleship Game is a Python-based console game where the player competes aga
 - end_game_menu: Displays options to either restart the game or return to the home screen.
 
 ## Validation
-### Flake8
+### Flake8 and PEP8
 
 Code has been run through flake8 to ensure it follows PEP8 guidelines, fixing issues with line lengths and formatting.
-
-### PEP8
-
 
 ## Deployment
 
@@ -165,10 +210,10 @@ To deploy this Battleship game on Heroku, follow these steps:
 
 - Code institute for the project 3 scope video. 
 
-- [Youtube: Corey Schafer] (https://www.youtube.com/watch?v=ZDa-Z5JzLYM) for creating classes in python. 
+- [Youtube: Corey Schafer] (https://www.youtube.com/watch?v=ZDa-Z5JzLYM) A comprehensive guide on creating classes in Python. 
 
-- [YouTube: How to Fix] (https://www.youtube.com/watch?v=Zt1G6AE_7Ks) for how to fix lines too long. 
+- [YouTube: How to Fix] (https://www.youtube.com/watch?v=Zt1G6AE_7Ks) A helpful guide on resolving issues with lines that exceed the recommended length in Python code.
 
-- DeftStack (https://www.delftstack.com/howto/python/python-clear-console/#google_vignette) for how to clear console in Python.
+- DeftStack (https://www.delftstack.com/howto/python/python-clear-console/#google_vignette) Instructions on how to clear the console in Python.
 
-- ASCII Art Archive (https://www.asciiart.eu/text-to-ascii-art) for adding Battleships! art to home page. 
+- ASCII Art Archive (https://www.asciiart.eu/text-to-ascii-art) Used for adding Battleships! ASCII art to the home page.

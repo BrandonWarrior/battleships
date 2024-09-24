@@ -77,18 +77,20 @@ class BattleshipGame:
                     0 <= int(row) < self.size and
                     0 <= int(col) < self.size
                 ):
-
                     row, col = int(row), int(col)
-
                     if (row, col) not in self.player_guesses:
                         self.player_guesses.append((row, col))
                         return row, col
                     else:
-                        print("You've already guessed those coordinates! "
-                              "Try again.")
+                        print(
+                            "You've already guessed those coordinates! "
+                            "Try again."
+                        )
                 else:
-                    print("Invalid input! Please enter a single digit for "
-                          "both row and column.")
+                    print(
+                        "Invalid input! Please enter a single digit for "
+                        "both row and column."
+                    )
 
             except ValueError:
                 print("Invalid input! Please enter numbers only.")
@@ -144,20 +146,25 @@ class BattleshipGame:
             # Player's turn
             print("\nYour turn:")
             player_guess = self.get_player_guess()
-            self.check_guess(self.computer_grid,
-                             self.computer_ships, player_guess)
+            self.check_guess(
+                self.computer_grid,
+                self.computer_ships, player_guess
+            )
 
             if self.check_game_over(self.computer_ships):
-                print("\nCongratulations! You've sunk all the computer's "
-                      "ships!")
+                print(
+                    "\nCongratulations! You've sunk all the computer's ships!"
+                )
                 break
 
             # Computer's turn
             print("\nComputer's turn:")
             computer_guess = self.computer_turn()
             print(f"Computer guesses: {computer_guess}")
-            self.check_guess(self.player_grid,
-                             self.player_ships, computer_guess)
+            self.check_guess(
+                self.player_grid,
+                self.player_ships, computer_guess
+            )
 
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
@@ -194,8 +201,9 @@ class BattleshipGame:
         """
         Restart the game with the same settings.
         """
-        self.__init__(self.size, self.num_ships, self.player_name,
-                      self.ship_type)
+        self.__init__(
+            self.size, self.num_ships, self.player_name, self.ship_type
+        )
         self.start_game()
 
 
@@ -227,8 +235,13 @@ def show_home_page():
 
             # Input validation: Ensure name is not empty or just spaces
             while not player_name:
-                print("Invalid name. Please enter a valid name to start the game.")
-                player_name = input("Enter your name to start the game: ").strip()
+                print(
+                    "Invalid name."
+                    "Please enter a valid name to start the game."
+                    )
+                player_name = input(
+                    "Enter your name to start the game: "
+                    ).strip()
 
             game = BattleshipGame(
                 size=5,
@@ -243,7 +256,9 @@ def show_home_page():
             show_instructions()
 
         else:
-            print("Invalid choice. Please enter '1' to start the game or '2' to view instructions.")
+            print(
+                "Invalid choice. Please enter '1' to start the game or '2'"
+                "to view instructions.")
 
 
 def show_instructions():
@@ -267,8 +282,8 @@ def show_instructions():
             show_home_page()
             break
         else:
-            print(
-                "Invalid input. Please press 1 to return to the home screen.")
+            print("Invalid input. Please press 1"
+                  "to return to the home screen.")
 
 
 def clear_console():
