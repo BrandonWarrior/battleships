@@ -32,7 +32,9 @@ Happy coding!
 
 # Battleships! - Project 3
 
-The Battleship Game is a Python-based console game where the player competes against the computer. Each player has a grid where ships are placed randomly. The goal of the game is to guess the locations of the opponent's ships and sink them before your ships are sunk.
+The Battleship Game is an interactive, Python-based console game that brings the classic board game experience to your screen. In this turn-based strategy game, the player competes against an AI-controlled computer opponent, each with their own grid where ships are placed randomly. The objective is to correctly guess the locations of your opponent's hidden ships and sink them before your fleet is destroyed. The game offers a simple yet engaging experience, with features such as input validation, real-time feedback, and a clean, intuitive interface. It’s a fun way to test your strategic thinking and luck!
+
+This project was designed to demonstrate proficiency in Python fundamentals, including the use of loops, conditionals, functions, and classes. It also emphasizes proper coding practices, such as PEP8 compliance and robust input handling, making it a well-rounded programming challenge suitable for all ages.
 
 ## Features
 
@@ -115,9 +117,12 @@ The Battleship Game is a Python-based console game where the player competes aga
 
 - This screenshot shows the beginning of the game after the player has entered their name. It displays the player's grid and provides details such as the grid size, the number of ships, and the ship type.
 
+
 ![duplicated turn](docs/images/duplicated-turn.png)
 
 This screenshot demonstrates the input validation for repeated guesses. When the player tries to guess the same coordinates multiple times, an error message appears, instructing them to pick a new location.
+
+
 
 ![correct turn](docs/images/correct-turn.png)
 
@@ -130,13 +135,19 @@ Here is what you would see when you manage to guess correctly:
 
 - This screenshot demonstrates the input validation feature in action. The player has entered invalid coordinates, and the game displays an error message, prompting them to enter valid coordinates within the grid's boundaries.
 
+
+
 ![loser](docs/images/loser-end.png)
 
 - This screenshot appears when the player loses the game. The computer has sunk all the player's ships, and the game ends with a "Game over!" message.
 
+
+
 ![winner](docs/images/winner-end.png)
 
 - This screenshot displays the end-of-game screen when the player wins. It congratulates the player for successfully sinking all the computer's ships and winning the game.
+
+
 
 ![input validation at the end of the game ](docs/images/end-game-validation.png)
 
@@ -178,10 +189,36 @@ Here is what you would see when you manage to guess correctly:
 
 - end_game_menu: Displays options to either restart the game or return to the home screen.
 
-## Validation
+## Validation and Testing
+
 ### Flake8 and PEP8
 
-Code has been run through flake8 to ensure it follows PEP8 guidelines, fixing issues with line lengths and formatting.
+![pep8 testing](docs/images/pep8.png)
+- code has been passed through the pep8 linter and has returned no problems. https://pep8ci.herokuapp.com/
+
+- Code has been run through flake8 in the terminal to ensure it follows PEP8 guidelines, fixing issues with line lengths and formatting.
+
+### Manual Testing
+
+- Home Screen Validation: The home screen was tested to ensure that only '1' or '2' are accepted as valid inputs. Any other input displays an error message, and the user is prompted to try again.
+
+- Player Name Input Validation: Attempted to start the game without entering a name, entering only spaces, and entering a valid name. All invalid attempts were correctly flagged, and the game only proceeded with a valid name.
+
+Game Input Validation:
+
+- Entered various invalid coordinates (e.g., letters, multiple digits, out-of-bound numbers) to ensure that the game correctly rejected these entries.
+
+- Tested repeated guesses, and the game properly displayed an error message for duplicate inputs.
+
+### Game Flow: Played multiple games to verify:
+
+- The player’s turn alternates correctly with the computer’s turn.
+
+- Hits, misses, and the game's end conditions (win/lose) were accurately displayed.
+
+- The game displayed the correct end-game menu, offering the option to restart or return to the home screen.
+
+- Instructions Page: Confirmed that selecting '2' from the home screen displays the instructions. The input validation for returning to the home screen by pressing '1' was also tested and worked correctly.
 
 ## Deployment
 
@@ -216,6 +253,7 @@ To deploy this Battleship game on Heroku, follow these steps:
 - Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or by entering just whitespaces. The game now ensures that players provide a valid name by repeatedly prompting them until a non-empty, non-whitespace name is entered, enhancing the overall user experience and preventing unintended gameplay starts.
 
 - Input Validation: Resolved an issue where the invalid input message on the home screen would not appear properly when entering an incorrect key. The problem was caused by the clear_console function, which was clearing the screen before the error message could be displayed. Now, the game properly displays the error message and waits for a valid input (1 or 2) before proceeding.
+
 ## Credits
 
 - Code institute for the project 3 scope video. 

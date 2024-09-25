@@ -3,9 +3,8 @@ import os
 
 
 class BattleshipGame:
-    """
-    A class to represent a Battleship game.
-    """
+
+    # A class to represent a Battleship game.
 
     def __init__(self, size, num_ships, player_name, ship_type):
         """
@@ -25,9 +24,9 @@ class BattleshipGame:
         self.computer_guesses = []
 
     def create_grid(self):
-        """
-        Create an empty game grid of the specified size.
-        """
+
+        # Create an empty game grid of the specified size.
+
         return [["O" for _ in range(self.size)] for _ in range(self.size)]
 
     def place_ships(self, grid):
@@ -262,9 +261,9 @@ def show_home_page():
 
 
 def show_instructions():
-    """
-    Display instructions on how to play the game.
-    """
+
+    # Display instructions on how to play the game.
+
     clear_console()
     print("Instructions:\n")
     print("1. This is a simple Battleships game.\n")
@@ -287,9 +286,9 @@ def show_instructions():
 
 
 def clear_console():
-    """
-    Clear the console for better readability.
-    """
+
+    # Clear the console for better readability.
+
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
