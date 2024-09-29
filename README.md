@@ -180,18 +180,6 @@ These functions manage aspects outside the main gameplay loop, such as handling 
 
 - clear_console: Clears the console screen for better readability, making the transition between game screens smoother. This is used throughout the program to maintain a clean interface, depending on the operating system.
 
-## Bugs and Fixes
-
-- Invalid Input Handling: Resolved a bug where users could input multiple digits or include spaces before/after the row/column inputs, causing errors and unintended gameplay behavior. The input validation has been added to ensure only single-digit inputs without any spaces are accepted, preventing out-of-bounds guesses and maintaining the integrity of the game. This fix ensures smoother gameplay and prevents players from entering invalid coordinates.
-
-- Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn, which caused unnecessary clutter and confusion during gameplay. Now, the grid is displayed only once per turn, providing a clearer and more streamlined experience for the player, making it easier to track the progress of the game.
-
-- Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or by entering just whitespaces. The game now ensures that players provide a valid name by repeatedly prompting them until a non-empty, non-whitespace name is entered, enhancing the overall user experience and preventing unintended gameplay starts.
-
-- Input Validation: Resolved an issue where the invalid input message on the home screen would not appear properly when entering an incorrect key. The problem was caused by the clear_console function, which was clearing the screen before the error message could be displayed. Now, the game properly displays the error message and waits for a valid input (1 or 2) before proceeding.
-
-- There are no remaining bugs.
-
 ## Validation and Testing
 
 ### Flake8 and PEP8
@@ -222,6 +210,18 @@ Game Input Validation:
 - The game displayed the correct end-game menu, offering the option to restart or return to the home screen.
 
 - Instructions Page: Confirmed that selecting '2' from the home screen displays the instructions. The input validation for returning to the home screen by pressing '1' was also tested and worked correctly.
+
+## Bugs and Fixes
+
+- Invalid Input Handling: Resolved a bug where users could input multiple digits or include spaces before/after the row/column inputs, causing errors and unintended gameplay behavior. The input validation has been added to ensure only single-digit inputs without any spaces are accepted, preventing out-of-bounds guesses and maintaining the integrity of the game. This fix ensures smoother gameplay and prevents players from entering invalid coordinates.
+
+- Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn, which caused unnecessary clutter and confusion during gameplay. Now, the grid is displayed only once per turn, providing a clearer and more streamlined experience for the player, making it easier to track the progress of the game.
+
+- Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or by entering just whitespaces. The game now ensures that players provide a valid name by repeatedly prompting them until a non-empty, non-whitespace name is entered, enhancing the overall user experience and preventing unintended gameplay starts.
+
+- Input Validation: Resolved an issue where the invalid input message on the home screen would not appear properly when entering an incorrect key. The problem was caused by the clear_console function, which was clearing the screen before the error message could be displayed. Now, the game properly displays the error message and waits for a valid input (1 or 2) before proceeding.
+
+- There are no remaining bugs.
 
 ## Deployment
 
