@@ -5,7 +5,9 @@ The Battleship Game is an interactive, Python-based console game that brings the
 
 This project was designed to demonstrate proficiency in Python fundamentals, including the use of loops, conditionals, functions, and classes. It also emphasizes proper coding practices, such as PEP8 compliance and robust input handling, making it a well-rounded programming challenge suitable for all ages.
 
-![]()
+[Battleships!-Project3](https://battleships-project3-4a1230ee998c.herokuapp.com/)
+
+![Start of Game](docs/images/start-of-game.png)
 
 ## Features
 
@@ -99,12 +101,14 @@ This screenshot demonstrates the input validation for repeated guesses. When the
 
 - This screenshot shows that the player has entered valid coordinates correctly to play the game. However, the guess results in a "Miss," indicated by the "M" on the grid, showing that no ship was hit. If you manage to guess correctly it will be indicated by a "H" on the grid. You can also see the computers turn with a randomised guess each turn. 
 Here is what you would see when you manage to guess correctly:
+
 ![hit](docs/images/hit.png)
 
 
-![incorrect turn](docs/images/invalid-turn.png)
+![incorrect turn](docs/images/incorrect-turn.png)
+![incorrect turn](docs/images/incorrect-turn-spaces.png)
 
-- This screenshot demonstrates the input validation feature in action. The player has entered invalid coordinates, and the game displays an error message, prompting them to enter valid coordinates within the grid's boundaries.
+- These screenshots demonstrates the input validation feature in action. The player has entered coordinates outside the valid range (0-4) or with spaces, and the game displays an error message, prompting them to enter valid coordinates within the grid's boundaries. In the second screenshot It shows that the player has entered coordinates within the grid but has also entered spaces. This ensures a single-digit input so that a player can not enter a space before or after the digit.
 
 
 
@@ -180,7 +184,7 @@ These functions manage aspects outside the main gameplay loop, such as handling 
 
 ## Bugs and Fixes
 
-- Invalid Input Handling: Resolved a bug where users could input multiple digits in the row/column inputs, which caused errors and unintended gameplay behavior. The input validation has been enhanced to ensure that only single-digit inputs are accepted, preventing out-of-bounds guesses and maintaining the integrity of the game. This fix ensures smoother gameplay and prevents players from entering invalid coordinates.
+- Invalid Input Handling: Resolved a bug where users could input multiple digits or include spaces before/after the row/column inputs, causing errors and unintended gameplay behavior. The input validation has been added to ensure only single-digit inputs without any spaces are accepted, preventing out-of-bounds guesses and maintaining the integrity of the game. This fix ensures smoother gameplay and prevents players from entering invalid coordinates.
 
 - Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn, which caused unnecessary clutter and confusion during gameplay. Now, the grid is displayed only once per turn, providing a clearer and more streamlined experience for the player, making it easier to track the progress of the game.
 

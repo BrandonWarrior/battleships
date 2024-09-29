@@ -71,9 +71,9 @@ class BattleshipGame:
 
             # Validate that the input is a single digit without any spaces
             if (
-                row.isdigit() and col.isdigit() and  # Ensure both inputs are digits
-                len(row.strip()) == 1 and len(col.strip()) == 1 and  # Ensure input length is exactly 1
-                row.strip() == row and col.strip() == col and  # Ensure no spaces before/after
+                row.isdigit() and col.isdigit() and
+                len(row.strip()) == 1 and len(col.strip()) == 1 and
+                row.strip() == row and col.strip() == col and
                 0 <= int(row) < self.size and
                 0 <= int(col) < self.size
             ):
@@ -82,9 +82,11 @@ class BattleshipGame:
                     self.player_guesses.append((row, col))
                     return row, col
                 else:
-                    print("You've already guessed those coordinates! Try again.")
+                    print("You've already guessed those coordinates! "
+                          "Try again.")
             else:
-                print("Invalid input! Please enter a single digit (0-4) with no spaces.")
+                print("Invalid input! Please enter a single digit (0-4) "
+                      "with no spaces.")
 
     def check_guess(self, grid, ships, guess):
         """
@@ -126,7 +128,8 @@ class BattleshipGame:
         """
         clear_console()
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
-        print("press 'run console' to take you back to the main menu at any time.\n")
+        print("If you wish to exit the game at any time,"
+              " press 'run console' to take you back to the main menu\n")
         print(
             f"Grid Size: {self.size}x{self.size}, "
             f"Ships: {self.num_ships}, Ship Type: {self.ship_type}"
@@ -144,9 +147,9 @@ class BattleshipGame:
             )
 
             if self.check_game_over(self.computer_ships):
-                print(
-                    "\nCongratulations! You've sunk all the computer's ships!"
-                )
+                print("\nCongratulations! You've sunk all the computer's ships!")
+                print("\nFinal Computer's Board:")
+                self.display_grid(self.computer_grid)  # Display final computer grid
                 break
 
             # Computer's turn
@@ -160,6 +163,8 @@ class BattleshipGame:
 
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
+                print("\nFinal Player's Board:")
+                self.display_grid(self.player_grid)  # Display final player grid
                 break
 
             print("\nYour board:")
