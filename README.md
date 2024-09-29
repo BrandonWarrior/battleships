@@ -1,40 +1,11 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
-
 
 # Battleships! - Project 3
 
 The Battleship Game is an interactive, Python-based console game that brings the classic board game experience to your screen. In this turn-based strategy game, the player competes against an AI-controlled computer opponent, each with their own grid where ships are placed randomly. The objective is to correctly guess the locations of your opponent's hidden ships and sink them before your fleet is destroyed. The game offers a simple yet engaging experience, with features such as input validation, real-time feedback, and a clean, intuitive interface. It’s a fun way to test your strategic thinking and luck!
 
 This project was designed to demonstrate proficiency in Python fundamentals, including the use of loops, conditionals, functions, and classes. It also emphasizes proper coding practices, such as PEP8 compliance and robust input handling, making it a well-rounded programming challenge suitable for all ages.
+
+![]()
 
 ## Features
 
@@ -171,23 +142,53 @@ Here is what you would see when you manage to guess correctly:
 
 ## Code Structure 
 
-- BattleshipGame: The main class responsible for managing the game.
+### BattleshipsGame Class 
 
-- create_grid: Creates an empty game grid.
+This class is the central part of the game, handling all aspects of the gameplay between the player and the computer. It manages game setup, input handling, game logic, and the main game loop.
 
-- place_ships: Randomly places ships on the grid.
+- __init__: This constructor initializes the game with parameters such as the grid size, the number of ships, the player's name, and the type of ship. It also sets up the player's and computer's grids, randomly places their ships, and initializes lists to track guesses.
 
-- display_grid: Displays the current state of the grid.
+- create_grid: Creates and returns an empty game grid (a 2D list) of the specified size, initially filled with "O" to represent unexplored spots.
 
-- get_player_guess: Prompts the player for valid input.
+- place_ships: Responsible for randomly placing a specified number of ships on the grid. It ensures that no two ships occupy the same coordinates.
 
-- check_guess: Checks whether a guess is a hit or miss and updates the grid accordingly.
+- display_grid: Displays the current state of the game grid to the player. This method can hide the ship locations on the computer's grid to maintain the game's challenge.
 
-- computer_turn: Generates a random guess for the computer.
+- get_player_guess: This method handles the player's input for row and column coordinates and validates that the input is within the allowed range and not previously guessed.
 
-- start_game: Manages the game loop, alternating between player and computer turns.
+- check_guess: Checks whether a guess is a hit or miss by comparing it against the list of ship coordinates. It updates the grid accordingly with "H" for hits and "M" for misses.
 
-- end_game_menu: Displays options to either restart the game or return to the home screen.
+- check_game_over: Evaluates whether all ships have been sunk, determining if the game has ended.
+
+- computer_turn: Generates a random guess for the computer's turn, ensuring it doesn't select the same spot twice.
+
+- start_game: The main method that manages the game loop, alternating between the player's turn and the computer's turn until one side has sunk all the opponent's ships. It displays relevant messages and updates the grids after each turn.
+
+- end_game_menu: Displays options at the end of the game, prompting the player to either restart or return to the home screen. It provides input validation to ensure valid choices.
+
+- restart_game: Restarts the game using the existing settings without exiting the program. It calls the __init__ method again to reset the game state.
+
+### Standalone Functions
+
+These functions manage aspects outside the main gameplay loop, such as handling the user interface and displaying instructions.
+
+- show_home_page: This function displays the home screen when the game starts, showing options to either start the game or view the instructions. It handles input validation to ensure that players only proceed with valid choices ("1" or "2").
+
+- show_instructions: Provides detailed game instructions to the player, explaining the goal, game rules, and gameplay mechanics. Includes input validation to ensure players return to the home screen by pressing "1".
+
+- clear_console: Clears the console screen for better readability, making the transition between game screens smoother. This is used throughout the program to maintain a clean interface, depending on the operating system.
+
+## Bugs and Fixes
+
+- Invalid Input Handling: Resolved a bug where users could input multiple digits in the row/column inputs, which caused errors and unintended gameplay behavior. The input validation has been enhanced to ensure that only single-digit inputs are accepted, preventing out-of-bounds guesses and maintaining the integrity of the game. This fix ensures smoother gameplay and prevents players from entering invalid coordinates.
+
+- Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn, which caused unnecessary clutter and confusion during gameplay. Now, the grid is displayed only once per turn, providing a clearer and more streamlined experience for the player, making it easier to track the progress of the game.
+
+- Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or by entering just whitespaces. The game now ensures that players provide a valid name by repeatedly prompting them until a non-empty, non-whitespace name is entered, enhancing the overall user experience and preventing unintended gameplay starts.
+
+- Input Validation: Resolved an issue where the invalid input message on the home screen would not appear properly when entering an incorrect key. The problem was caused by the clear_console function, which was clearing the screen before the error message could be displayed. Now, the game properly displays the error message and waits for a valid input (1 or 2) before proceeding.
+
+- There are no remaining bugs.
 
 ## Validation and Testing
 
@@ -244,24 +245,14 @@ To deploy this Battleship game on Heroku, follow these steps:
 
 - App is live at: https://battleships-project3-4a1230ee998c.herokuapp.com/
 
-## Bugs and Fixes
-
-- Invalid Input Handling: Resolved a bug where users could input multiple digits in the row/column inputs, which caused errors and unintended gameplay behavior. The input validation has been enhanced to ensure that only single-digit inputs are accepted, preventing out-of-bounds guesses and maintaining the integrity of the game. This fix ensures smoother gameplay and prevents players from entering invalid coordinates.
-
-- Player's Grid Displayed Twice: Fixed the issue where the player's grid was displayed twice after each turn, which caused unnecessary clutter and confusion during gameplay. Now, the grid is displayed only once per turn, providing a clearer and more streamlined experience for the player, making it easier to track the progress of the game.
-
-- Input Validation for Player Names: Fixed a bug where players could start the game without entering a name or by entering just whitespaces. The game now ensures that players provide a valid name by repeatedly prompting them until a non-empty, non-whitespace name is entered, enhancing the overall user experience and preventing unintended gameplay starts.
-
-- Input Validation: Resolved an issue where the invalid input message on the home screen would not appear properly when entering an incorrect key. The problem was caused by the clear_console function, which was clearing the screen before the error message could be displayed. Now, the game properly displays the error message and waits for a valid input (1 or 2) before proceeding.
-
 ## Credits
 
 - Code institute for the project 3 scope video. 
 
-- [Youtube: Corey Schafer] (https://www.youtube.com/watch?v=ZDa-Z5JzLYM) A comprehensive guide on creating classes in Python. 
+- [Youtube: Corey Schafer](https://www.youtube.com/watch?v=ZDa-Z5JzLYM) A comprehensive guide on creating classes in Python. 
 
-- [YouTube: How to Fix] (https://www.youtube.com/watch?v=Zt1G6AE_7Ks) A helpful guide on resolving issues with lines that exceed the recommended length in Python code.
+- [YouTube: How to Fix](https://www.youtube.com/watch?v=Zt1G6AE_7Ks) A helpful guide on resolving issues with lines that exceed the recommended length in Python code.
 
-- DeftStack (https://www.delftstack.com/howto/python/python-clear-console/#google_vignette) Instructions on how to clear the console in Python.
+- [DeftStack](https://www.delftstack.com/howto/python/python-clear-console/#google_vignette) Instructions on how to clear the console in Python.
 
-- ASCII Art Archive (https://www.asciiart.eu/text-to-ascii-art) Used for adding Battleships! ASCII art to the home page.
+- [ASCII Art Archive](https://www.asciiart.eu/text-to-ascii-art) Used for adding Battleships! ASCII art to the home page.
