@@ -3,9 +3,8 @@ import os
 
 
 class BattleshipGame:
-    """
-    A class to represent a Battleship game.
-    """
+
+    # A class to represent a Battleship game.
 
     def __init__(self, size, num_ships, player_name, ship_type):
         """
@@ -25,9 +24,9 @@ class BattleshipGame:
         self.computer_guesses = []
 
     def create_grid(self):
-        """
-        Create an empty game grid of the specified size.
-        """
+
+        # Create an empty game grid of the specified size.
+
         return [["O" for _ in range(self.size)] for _ in range(self.size)]
 
     def place_ships(self, grid):
@@ -66,25 +65,34 @@ class BattleshipGame:
         Ensures that the input is valid and within the grid's bounds.
         """
         while True:
-            row = input(f"Enter a row (0-{self.size - 1}): ")
-            col = input(f"Enter a column (0-{self.size - 1}): ")
+            try:
+                row = input(f"Enter a row (0-{self.size - 1}): ").strip()
+                col = input(f"Enter a column (0-{self.size - 1}): ").strip()
 
-            # Validate that the input is a single digit without any spaces
-            if (
-                row.isdigit() and col.isdigit() and  # Ensure both inputs are digits
-                len(row.strip()) == 1 and len(col.strip()) == 1 and  # Ensure input length is exactly 1
-                row.strip() == row and col.strip() == col and  # Ensure no spaces before/after
-                0 <= int(row) < self.size and
-                0 <= int(col) < self.size
-            ):
-                row, col = int(row), int(col)
-                if (row, col) not in self.player_guesses:
-                    self.player_guesses.append((row, col))
-                    return row, col
+                # Validate that the input is a single-digit number
+                if (
+                    row.isdigit() and col.isdigit() and
+                    len(row.strip()) == 1 and len(col.strip()) == 1 and
+                    0 <= int(row.strip()) < self.size and
+                    0 <= int(col.strip()) < self.size
+                ):
+                    row, col = int(row), int(col)
+                    if (row, col) not in self.player_guesses:
+                        self.player_guesses.append((row, col))
+                        return row, col
+                    else:
+                        print(
+                            "You've already guessed those coordinates! "
+                            "Try again."
+                        )
                 else:
-                    print("You've already guessed those coordinates! Try again.")
-            else:
-                print("Invalid input! Please enter a single digit (0-9) with no spaces.")
+                    print(
+                        "Invalid input! Please enter a single digit for "
+                        "both row and column."
+                    )
+
+            except ValueError:
+                print("Invalid input! Please enter numbers only.")
 
     def check_guess(self, grid, ships, guess):
         """
@@ -126,8 +134,8 @@ class BattleshipGame:
         """
         clear_console()
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
-        print("If you wish to exit the game at any time,"
-              " press 'run console' to take you back to the main menu\n")
+        print("If you wish to return to the main menu,"
+              " press 'run console'\n")
         print(
             f"Grid Size: {self.size}x{self.size}, "
             f"Ships: {self.num_ships}, Ship Type: {self.ship_type}"
@@ -255,9 +263,9 @@ def show_home_page():
 
 
 def show_instructions():
-    """
-    Display instructions on how to play the game.
-    """
+
+    # Display instructions on how to play the game.
+
     clear_console()
     print("Instructions:\n")
     print("1. This is a simple Battleships game.\n")
@@ -280,9 +288,9 @@ def show_instructions():
 
 
 def clear_console():
-    """
-    Clear the console for better readability.
-    """
+
+    # Clear the console for better readability.
+
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
