@@ -128,8 +128,8 @@ class BattleshipGame:
         """
         clear_console()
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
-        print("If you wish to exit the game at any time,"
-              " press 'run console' to take you back to the main menu\n")
+        print("Press 'run console'"
+              "to take you back to the main menu at any time\n")
         print(
             f"Grid Size: {self.size}x{self.size}, "
             f"Ships: {self.num_ships}, Ship Type: {self.ship_type}"
@@ -147,9 +147,12 @@ class BattleshipGame:
             )
 
             if self.check_game_over(self.computer_ships):
-                print("\nCongratulations! You've sunk all the computer's ships!")
+                print(
+                    "\nCongratulations! You've sunk all the computer's ships!"
+                    )
                 print("\nFinal Computer's Board:")
-                self.display_grid(self.computer_grid)  # Display final computer grid
+                # Display final computer grid
+                self.display_grid(self.computer_grid)
                 break
 
             # Computer's turn
@@ -164,7 +167,8 @@ class BattleshipGame:
             if self.check_game_over(self.player_ships):
                 print("\nGame over! The computer has sunk all your ships!")
                 print("\nFinal Player's Board:")
-                self.display_grid(self.player_grid)  # Display final player grid
+                # Display final player grid
+                self.display_grid(self.player_grid)
                 break
 
             print("\nYour board:")
