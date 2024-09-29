@@ -112,19 +112,17 @@ Here is what you would see when you manage to guess correctly:
 
 
 
-![loser](docs/images/loser-end.png)
+![loser](docs/images/game-over-loss.png)
 
-- This screenshot appears when the player loses the game. The computer has sunk all the player's ships, and the game ends with a "Game over!" message.
-
-
-
-![winner](docs/images/winner-end.png)
-
-- This screenshot displays the end-of-game screen when the player wins. It congratulates the player for successfully sinking all the computer's ships and winning the game.
+- This screenshot appears when the player loses the game. The computer has sunk all the player's ships, and the game ends with a "Game over!" message. It also shows the state of the player board to show that the computer has hit all the ships. 
 
 
+![winner](docs/images/game-over-win.png)
 
-![input validation at the end of the game ](docs/images/end-game-validation.png)
+- This screenshot displays the end-of-game screen when the player wins. It congratulates the player for successfully sinking all the computer's ships and winning the game. It also shows state of the computer game board to show that all the ships have been hit. 
+
+
+![input validation at the end of the game ](docs/images/game-over-validation.png)
 
 - This screenshot demonstrates the input validation feature at the end of the game. If the player enters an invalid key when prompted to either restart the game or return to the home page, an error message appears, instructing them to enter "1" or "2" to make a valid choice.
 

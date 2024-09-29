@@ -129,7 +129,7 @@ class BattleshipGame:
         clear_console()
         print(f"Welcome, {self.player_name}! Let's play Battleships!\n")
         print("Press 'run console'"
-              "to take you back to the main menu at any time\n")
+              "to take you back to the main menu at any time.\n")
         print(
             f"Grid Size: {self.size}x{self.size}, "
             f"Ships: {self.num_ships}, Ship Type: {self.ship_type}"
