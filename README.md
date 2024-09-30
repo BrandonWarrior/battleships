@@ -13,11 +13,19 @@ This project was designed to demonstrate proficiency in Python fundamentals, inc
 
 - Home Screen: The game features an interactive home screen with options to start the game or view detailed instructions on how to play. It also includes input validation to ensure that only the correct options are selected.
 
+- Detailed Instructions: The instructions option provides a guide on how to play the game, ensuring that even first-time players understand the rules and objectives.
+
 - Player vs. Computer Gameplay: Players compete against a computer opponent, taking turns to guess the location of each other's ships. The game keeps track of both the player's and computer's moves, providing a challenging experience.
 
 - Random Ship Placement: Ships are randomly placed on both the player's and computer's grids at the start of the game, ensuring a unique game experience each time. The placement logic prevents any overlap between ships.
 
 - Real-time Feedback: During gameplay, hits ("H"), misses ("M"), and the status of the ships are displayed in real-time on the grid. This provides clear and immediate feedback to the player about their progress.
+
+- Clear Console: The console is cleared at appropriate points, such as when returning to the main menu, starting a new game, or viewing instructions. This keeps the game interface clean and improves readability.
+
+- Final Board Display: The final state of both the player's and computer's boards is displayed when the game ends, allowing the player to review their performance and see the remaining ship locations.
+
+- End Game Options: After the game ends, players are presented with an end game menu that allows them to choose whether to restart the game or return to the home screen. This provides a seamless way to replay or exit the game without needing to restart the program.
 
 ### Input Validation:
 
